@@ -10,8 +10,8 @@
         --card-foreground: 240 10% 3.9%;
         --popover: 0 0% 100%;
         --popover-foreground: 240 10% 3.9%;
-        --primary: 221.2 83.2% 53.3%;
-        --primary-foreground: 210 40% 98%;
+        --primary: 356 92% 41%; /* UW–Madison red */
+        --primary-foreground: 0 0% 100%; /* White text on red */
         --secondary: 240 4.8% 95.9%;
         --secondary-foreground: 240 5.9% 10%;
         --muted: 240 4.8% 95.9%;
@@ -45,10 +45,8 @@
         --card-foreground: 0 0% 98%;
         --popover: 240 10% 3.9%;
         --popover-foreground: 0 0% 98%;
-        /* --primary: 221.2 83.2% 53.3%; Original */
-        --primary: 217 89% 68%; /* Adjusted to be more readable, Contrast Ratio = 7.15 : 1 (lighter) */
-        /* --primary-foreground: 210 40% 98%; Original */
-        --primary-foreground: 222 42% 6%; /* Adjusted to be more readable, Contrast Ratio = 7.15 : 1 (lighter) */
+        --primary: 356 92% 41%; /* UW–Madison red */
+        --primary-foreground: 0 0% 100%; /* White text on red */
         --secondary: 240 3.7% 15.9%;
         --secondary-foreground: 0 0% 98%;
         --muted: 240 3.7% 15.9%;
@@ -98,7 +96,7 @@
     .prose > p > img {
         @apply w-full;
     }
-    ::-webkit-scrollbar {
+    /* ::-webkit-scrollbar {
         width: 10px;
     }
     ::-webkit-scrollbar-track {
@@ -107,7 +105,7 @@
     ::-webkit-scrollbar-thumb {
         @apply bg-primary;
         border-radius: 9999px;
-    }
+    } */
     .link {
         @apply text-primary underline;
     }
