@@ -2,10 +2,11 @@ import { Layout } from '@/components/layout'
 import { Projects } from '@/components/sections/projects'
 import { Publications } from '@/components/sections/publications'
 import { Typography } from '@/components/typography'
+import { Separator } from '@/components/ui/separator'
 import { people } from '@/data/people'
-import { publications } from '@/data/publications'
 import { researchAreas } from '@/data/research'
 import { getProjectsList } from '@/lib/projects'
+import { getResearchData } from '@/lib/research'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -14,34 +15,34 @@ export async function generateStaticParams() {
 }
 
 export default async function ResearchDetailPage({ params }: { params: { id: string } }) {
-    const area = researchAreas.find((r) => r.id === params.id)
-    if (!area) return notFound()
+    const rawArea = researchAreas.find((r) => r.id === params.id)
+    if (!rawArea || !rawArea.markdown) return notFound()
+
+    const area = rawArea
+    const researchFile = await getResearchData(area.markdown)
+    if (!researchFile) return notFound()
 
     const associatedPeople = people.filter((p) => area.people?.includes(p.id))
-    const associatedPublications = area.publications || []
-
     const allProjects = await getProjectsList()
     const associatedProjects = allProjects.filter((project) => area.projects?.includes(project.slug))
+
+    const publications = area.publications ?? []
 
     return (
         <Layout>
             <section className="py-12 max-w-6xl mx-auto space-y-12">
                 <div className="space-y-6">
                     <Typography variant="h1">{area.title}</Typography>
-                    <p className="text-muted-foreground">{area.summary}</p>
+                    <Separator />
+                    <article
+                        className="prose prose-a:text-primary max-w-none"
+                        dangerouslySetInnerHTML={{ __html: researchFile.content }}
+                    />
                 </div>
 
-                {associatedPublications.length > 0 && (
-                    <div>
-                        <Publications filterByIds={associatedPublications} />
-                    </div>
-                )}
+                {publications.length > 0 && <Publications filterByIds={publications} />}
 
-                {associatedProjects.length > 0 && (
-                    <div>
-                        <Projects projects={associatedProjects} />
-                    </div>
-                )}
+                {associatedProjects.length > 0 && <Projects projects={associatedProjects} />}
 
                 {associatedPeople.length > 0 && (
                     <div className="space-y-4">

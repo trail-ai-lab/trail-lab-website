@@ -6,6 +6,7 @@ import rehypeCodeTitles from 'rehype-code-titles'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypeSlug from 'rehype-slug'
 import rehypeStringify from 'rehype-stringify'
+import remarkGfm from 'remark-gfm'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import { CompileResults, unified } from 'unified'
@@ -44,6 +45,7 @@ export const getProjectsData = async (slug: string): Promise<ProjectData | null>
 
     const file = await unified()
         .use(remarkParse)
+        .use(remarkGfm)
         .use(remarkRehype)
         .use(rehypeSlug)
         .use(rehypeCodeTitles)
