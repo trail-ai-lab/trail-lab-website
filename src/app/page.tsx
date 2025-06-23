@@ -8,44 +8,54 @@ import Link from 'next/link'
 const HomePage = async () => {
     return (
         <Layout>
-            <section className="relative flex flex-col items-center justify-center py-24 text-center px-6">
-                <div className="max-w-4xl space-y-6">
-                    {/* Logo */}
-                    <Image
-                        src="/images/logo/trail-logo.svg"
-                        alt="TRAIL Lab Logo"
-                        width={128}
-                        height={128}
-                        className="mx-auto mb-4 invert-0 dark:invert"
-                        priority
-                    />
+            <section className="relative bg-background py-20 lg:py-32 overflow-hidden">
+                <div className="container flex flex-col items-center gap-10 lg:flex-row lg:justify-between">
+                    {/* Left Content */}
+                    <div className="flex flex-col gap-7 max-w-2xl">
+                        <h1 className="text-5xl font-semibold text-foreground md:text-5xl lg:text-7xl leading-tight">
+                            TRAIL Lab:
+                            <span className="text-muted-foreground font-normal">
+                                {' '}
+                                The Responsible AI for Learning Lab
+                            </span>
+                        </h1>
 
-                    {/* Headline */}
-                    <Typography variant="h1" className="text-balance">
-                        TRAIL: <span className="font-normal">The Responsible AI for Learning</span>
-                    </Typography>
+                        <span className="font-normal text-lg">
+                            We study where AI fits in diverse classrooms, or if it should.
+                        </span>
 
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                        TRAIL is an interdisciplinary research lab at the University of Wisconsin–Madison advancing
-                        equity-centered, human-guided AI systems in education. We design tools and frameworks for
-                        auditing AI bias, supporting multilingual learners, enabling human–AI partnerships, and
-                        empowering teachers to shape how AI is used in their classrooms.
-                    </p>
+                        <p className="text-muted-foreground text-lg leading-relaxed">
+                            Housed at the University of Wisconsin–Madison, TRAIL Lab conducts interdisciplinary research
+                            in learning sciences, learning analytics, AI, and human-centered design to develop
+                            scientific understanding on responsible use of AI for teaching and learning in real-world
+                            contexts.
+                        </p>
 
-                    <div className="flex flex-wrap justify-center gap-4 pt-4">
-                        <Link href="/research">
-                            <Button variant="default" size="lg">
-                                Explore Our Research
-                            </Button>
-                        </Link>
-                        <Link href="/publications">
-                            <Button variant="outline" size="lg">
-                                View Publications
-                            </Button>
-                        </Link>
+                        <div className="flex flex-wrap items-start gap-5 lg:gap-7 pt-4">
+                            <Link href="/research">
+                                <Button size="lg">Explore Our Research</Button>
+                            </Link>
+                            <Link href="/publications">
+                                <Button size="lg" variant="outline">
+                                    View Publications
+                                </Button>
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* Image */}
+                    <div className="relative hidden lg:block h-[500px] w-[300px] overflow-hidden rounded-[35px] shadow-xl border">
+                        <Image
+                            src="/images/hero-image.jpg"
+                            alt="TRAIL Lab Hero"
+                            fill
+                            className="object-fill"
+                            priority
+                        />
                     </div>
                 </div>
             </section>
+
             <News />
         </Layout>
     )
