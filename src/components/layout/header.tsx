@@ -14,13 +14,22 @@ export const Header = () => {
                 className="w-full bg-primary text-white px-4 py-1 text-[0.825rem] font-semibold uppercase tracking-wide font-sans"
                 role="navigation"
             >
-                <div className="mx-auto flex justify-start">
-                    <a href="http://www.wisc.edu" className="hover:underline" aria-label="University home page">
+                <div className="flex w-full justify-between">
+                    <a href="http://www.wisc.edu" className="pl-4 hover:underline" aria-label="University home page">
                         U
                         <span>
                             niversity <span className="lowercase">of</span>{' '}
                         </span>
                         W<span>isconsin</span>–Madison
+                    </a>
+
+                    <a
+                        href="https://edpsych.education.wisc.edu/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="pr-4 hover:underline"
+                    >
+                        DEPARTMENT OF EDUCATIONAL PSYCHOLOGY
                     </a>
                 </div>
             </div>
