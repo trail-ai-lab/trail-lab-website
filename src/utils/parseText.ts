@@ -1,46 +1,91 @@
 import React from 'react'
+import { people } from '@/data/people'
 
 /**
- * Parses text containing Markdown-style links [text](url) into JSX elements.
- * @param text The input text string with potential markdown links.
- * @returns An array of React nodes with links properly formatted.
+ * Parses text containing Markdown-style links [text](url) and person references {person-id} into JSX elements.
+ * @param text The input text string with potential markdown links and person references.
+ * @returns A React node array with links properly formatted.
  */
-export const parseTextWithLinks = (text: string): React.ReactNode => {
-    const regex = /\[([^\]]+)\]\(([^)]+)\)/g // Matches [text](url) format
+export const parseTextWithLinks = (text: string): React.ReactNode[] => {
+    const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g // Matches [text](url) format
+    const personRefRegex = /\{([^}]+)\}/g // Matches {person-id} format
     const parts: React.ReactNode[] = []
     let lastIndex = 0
+    let keyCounter = 0
 
-    // Use Array.from to convert iterator to array for better compatibility
-    const matches = Array.from(text.matchAll(regex))
+    // Find all matches (both markdown links and person references)
+    const allMatches: Array<{
+        match: RegExpMatchArray
+        type: 'markdown' | 'person'
+    }> = []
 
-    matches.forEach((match, matchIndex) => {
-        const [fullMatch, linkText, url] = match
-        const index = match.index ?? 0
-
-        // Push plain text before the match
-        if (lastIndex < index) {
-            parts.push(text.slice(lastIndex, index))
-        }
-
-        // Push the hyperlink JSX element
-        parts.push(
-            React.createElement(
-                'a',
-                {
-                    key: `link-${matchIndex}`,
-                    href: url,
-                    className: 'text-primary underline',
-                    target: '_blank',
-                    rel: 'noopener noreferrer',
-                },
-                linkText,
-            ),
-        )
-
-        lastIndex = index + fullMatch.length
+    // Find markdown links
+    const markdownMatches = Array.from(text.matchAll(markdownLinkRegex))
+    markdownMatches.forEach(match => {
+        allMatches.push({ match, type: 'markdown' })
     })
 
-    // Add remaining text after the last link
+    // Find person references
+    const personMatches = Array.from(text.matchAll(personRefRegex))
+    personMatches.forEach(match => {
+        allMatches.push({ match, type: 'person' })
+    })
+
+    // Sort matches by their position in the text
+    allMatches.sort((a, b) => (a.match.index ?? 0) - (b.match.index ?? 0))
+
+    allMatches.forEach((item) => {
+        const { match, type } = item
+        const matchIndex = match.index ?? 0
+
+        // Push plain text before the current match
+        if (lastIndex < matchIndex) {
+            parts.push(text.slice(lastIndex, matchIndex))
+        }
+
+        if (type === 'markdown') {
+            // Handle markdown links [text](url)
+            const [fullMatch, linkText, url] = match
+            parts.push(
+                React.createElement(
+                    'a',
+                    {
+                        key: `link-${keyCounter++}`,
+                        href: url,
+                        className: 'text-primary underline',
+                        target: url.startsWith('http') ? '_blank' : undefined,
+                        rel: url.startsWith('http') ? 'noopener noreferrer' : undefined
+                    },
+                    linkText
+                )
+            )
+            lastIndex = matchIndex + fullMatch.length
+        } else if (type === 'person') {
+            // Handle person references {person-id}
+            const [fullMatch, personId] = match
+            const person = people.find(p => p.id === personId)
+            
+            if (person) {
+                parts.push(
+                    React.createElement(
+                        'a',
+                        {
+                            key: `person-${keyCounter++}`,
+                            href: `/people/${person.id}`,
+                            className: 'text-primary underline'
+                        },
+                        person.name
+                    )
+                )
+            } else {
+                // If person not found, keep the original text
+                parts.push(fullMatch)
+            }
+            lastIndex = matchIndex + fullMatch.length
+        }
+    })
+
+    // Add any remaining text after the last match
     if (lastIndex < text.length) {
         parts.push(text.slice(lastIndex))
     }
