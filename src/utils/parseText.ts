@@ -10,7 +10,8 @@ export const parseTextWithLinks = (text: string): React.ReactNode => {
     const parts: React.ReactNode[] = []
     let lastIndex = 0
 
-    const matches = [...text.matchAll(regex)] // Convert iterator to array
+    // Use Array.from to convert iterator to array for better compatibility
+    const matches = Array.from(text.matchAll(regex))
 
     matches.forEach((match, matchIndex) => {
         const [fullMatch, linkText, url] = match

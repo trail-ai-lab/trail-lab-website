@@ -175,11 +175,8 @@ export const Footer = () => {
                     <h3 className="uppercase font-semibold text-base mb-4">Partners</h3>
                     <ul className="space-y-4">
                         {[
-                            ['Division of Student Life', 'https://students.wisc.edu/'],
-                            [
-                                'Division of Diversity, Equity & Educational Achievement',
-                                'https://provost.wisc.edu/climate.htm',
-                            ],
+                            ['Data Science Institute', 'https://students.wisc.edu/'],
+                            ['Department of Curriculum & Instruction', 'https://provost.wisc.edu/climate.htm'],
                             ['Office of the Chancellor', 'https://chancellor.wisc.edu/'],
                             ['University Relations', 'https://universityrelations.wisc.edu/'],
                             ['Multicultural Student Center', 'https://msc.wisc.edu/'],

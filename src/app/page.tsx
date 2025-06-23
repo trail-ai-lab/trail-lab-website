@@ -1,6 +1,5 @@
 import { Layout } from '@/components/layout'
 import { News } from '@/components/sections/news'
-import { Typography } from '@/components/typography'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
