@@ -1,6 +1,5 @@
 'use client'
 
-import { Typography } from '@/components/typography'
 import { people } from '@/data/people'
 import { publications as allPublications } from '@/data/publications'
 import Link from 'next/link'
@@ -20,7 +19,7 @@ export const Publications = ({ filterByAuthorId, filterByIds }: PublicationsProp
         publications = publications.filter((pub) => filterByIds.includes(pub.id))
     }
 
-    const publicationsCount = `${publications.length} paper${publications.length !== 1 ? 's' : ''}`
+    const publicationsCount = `${publications.length} PAPER${publications.length !== 1 ? 'S' : ''}`
     const displayedYears = new Set<string>()
 
     const renderAuthors = (authorIdsOrNames: string[]) =>
@@ -43,13 +42,11 @@ export const Publications = ({ filterByAuthorId, filterByIds }: PublicationsProp
             }, [])
 
     return (
-        <section className="flex flex-col space-y-8">
-            <div className="flex items-center justify-between border-b pb-4">
-                <Typography variant="h1">Publications</Typography>
-                <p className="text-sm">{publicationsCount}</p>
-            </div>
+        <section className="flex flex-col">
+            <p className="mb-4 text-xs text-muted-foreground">{publicationsCount}</p>
+            <h2 className="text-3xl font-medium lg:text-4xl">Our Publications</h2>
 
-            <div className="flex flex-col space-y-6">
+            <div className="mt-24 flex flex-col space-y-6">
                 <div className="flex flex-col gap-12">
                     {publications
                         .slice()
@@ -69,26 +66,27 @@ export const Publications = ({ filterByAuthorId, filterByIds }: PublicationsProp
                                             </div>
                                             <div className="text-left space-y-2">
                                                 <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
+                                                    {item.title}
+                                                </h4>
+                                                <p className="leading-7">{renderAuthors(item.authors)}</p>
+                                                <p className="text-sm text-muted-foreground">{item.publisher}</p>
+
+                                                {item.link ? (
                                                     <a
                                                         href={item.link}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="text-primary hover:underline"
+                                                        className="flex items-center space-x-2 text-primary hover:underline"
                                                     >
-                                                        {item.title}
+                                                        <i className="icon-[simple-icons--adobeacrobatreader] size-4"></i>
+                                                        <span>View Paper</span>
                                                     </a>
-                                                </h4>
-                                                <p className="leading-7">{renderAuthors(item.authors)}</p>
-                                                <p className="text-sm text-muted-foreground">{item.publisher}</p>
-                                                <a
-                                                    href={item.link}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="flex items-center space-x-2 text-primary hover:underline"
-                                                >
-                                                    <i className="icon-[simple-icons--adobeacrobatreader] size-4"></i>
-                                                    <span>View Paper</span>
-                                                </a>
+                                                ) : (
+                                                    <div className="flex items-center space-x-2 text-muted-foreground cursor-not-allowed">
+                                                        <i className="icon-[simple-icons--adobeacrobatreader] size-4"></i>
+                                                        <span>View Paper</span>
+                                                    </div>
+                                                )}
                                             </div>
                                         </div>
                                     </div>
