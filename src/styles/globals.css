@@ -485,3 +485,16 @@ pre[class*='language-'] {
 .token.namespace {
     opacity: 0.8;
 }
+
+.prose table {
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+}
+
+.prose th,
+.prose td {
+    border: 1px solid #d1d5db;
+    padding: 0.5rem;
+    text-align: left;
+}

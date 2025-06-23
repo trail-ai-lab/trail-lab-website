@@ -14,7 +14,7 @@ export const News = () => {
                     <div key={index} className="mb-4 grid grid-cols-[8rem_1fr] items-start pb-4 last:mb-0 last:pb-0">
                         {/* Date section */}
                         <div className="flex items-center gap-2">
-                            <span className="h-2 w-2 rounded-full bg-sky-500" />
+                            <span className="h-2 w-2 rounded-full bg-primary" />
                             <p className="text-sm font-medium leading-7">{item.date}</p>
                         </div>
 
