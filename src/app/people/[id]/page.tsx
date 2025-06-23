@@ -37,7 +37,39 @@ const PersonPage = async ({ params }: { params: { id: string } }) => {
                         className="rounded-full"
                     />
                     <h1 className="text-3xl font-bold">{person.name}</h1>
-                    <p className="text-muted-foreground">{person.designation}</p>
+                    <p className="text-muted-foreground text-center">{person.designation}</p>
+
+                    {person.advisor && (
+                        <p className="text-sm text-muted-foreground text-center">
+                            Advisor:{' '}
+                            {person.advisorUrl ? (
+                                <Link
+                                    href={person.advisorUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="underline underline-offset-2 hover:text-primary"
+                                >
+                                    {person.advisor}
+                                </Link>
+                            ) : (
+                                person.advisor
+                            )}
+                        </p>
+                    )}
+
+                    {person.website && (
+                        <p className="text-sm text-muted-foreground text-center">
+                            Website:{' '}
+                            <Link
+                                href={person.website}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="underline underline-offset-2 hover:text-primary"
+                            >
+                                {new URL(person.website).hostname.replace(/^www\./, '')}
+                            </Link>
+                        </p>
+                    )}
                 </div>
 
                 {/* Research Areas */}
