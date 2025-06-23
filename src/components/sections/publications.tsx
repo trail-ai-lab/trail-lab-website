@@ -71,7 +71,7 @@ export const Publications = ({ filterByAuthorId, filterByIds }: PublicationsProp
                                                 <p className="leading-7">{renderAuthors(item.authors)}</p>
                                                 <p className="text-sm text-muted-foreground">{item.publisher}</p>
 
-                                                {item.link ? (
+                                                {item.link && (
                                                     <a
                                                         href={item.link}
                                                         target="_blank"
@@ -81,11 +81,6 @@ export const Publications = ({ filterByAuthorId, filterByIds }: PublicationsProp
                                                         <i className="icon-[simple-icons--adobeacrobatreader] size-4"></i>
                                                         <span>View Paper</span>
                                                     </a>
-                                                ) : (
-                                                    <div className="flex items-center space-x-2 text-muted-foreground cursor-not-allowed">
-                                                        <i className="icon-[simple-icons--adobeacrobatreader] size-4"></i>
-                                                        <span>View Paper</span>
-                                                    </div>
                                                 )}
                                             </div>
                                         </div>

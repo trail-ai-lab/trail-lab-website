@@ -1,9 +1,6 @@
-import { Typography } from '@/components/typography'
-import { Button } from '@/components/ui/button'
 import { news } from '@/data'
 import { parseTextWithLinks } from '@/utils/parseText'
 import { ArrowRight } from 'lucide-react'
-import Link from 'next/link'
 import React from 'react'
 
 interface NewsProps {
@@ -34,9 +31,10 @@ export const News = ({ showAll = false }: NewsProps) => {
 
                             {/* News content */}
                             <div>
-                                <p className="text-sm text-muted-foreground lg:text-lg">
-                                    {parseTextWithLinks(item.news)}
-                                </p>
+                                <p
+                                    className="text-sm text-muted-foreground lg:text-lg"
+                                    dangerouslySetInnerHTML={{ __html: parseTextWithLinks(item.news) }}
+                                />
                             </div>
                         </div>
                     ))}
