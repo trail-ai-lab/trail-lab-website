@@ -172,36 +172,25 @@ export const Footer = () => {
 
                 {/* Partners */}
                 <div>
-                    <h3 className="uppercase font-semibold text-base mb-4">Partners</h3>
+                    <h3 className="uppercase font-semibold text-base mb-4">AFFILIATIONS</h3>
                     <ul className="space-y-4">
                         {[
-                            ['Data Science Institute', 'https://students.wisc.edu/'],
-                            ['Department of Curriculum & Instruction', 'https://provost.wisc.edu/climate.htm'],
-                            ['Office of the Chancellor', 'https://chancellor.wisc.edu/'],
-                            ['University Relations', 'https://universityrelations.wisc.edu/'],
-                            ['Multicultural Student Center', 'https://msc.wisc.edu/'],
-                            ['Office for Equity and Diversity', 'https://oed.wisc.edu/'],
-                        ].map(([label, href]) => (
-                            <li key={label}>
-                                <Link href={href} className="hover:text-white">
-                                    {label}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                            ['American Educational Research Association (AERA)', 'https://www.aera.net/'],
 
-                {/* Quick Links */}
-                <div>
-                    <h3 className="uppercase font-semibold text-base mb-4">Quick Links</h3>
-                    <ul className="space-y-4">
-                        {[
-                            ['Accessibility', 'http://www.wisc.edu/accessibility/'],
-                            ['Diversity', 'https://diversity.wisc.edu/'],
-                            ['Governance', 'https://www.wisc.edu/governance/'],
-                            ['Policies', 'https://www.wisc.edu/policies/'],
-                            ['Safety', 'https://uwpd.wisc.edu/'],
-                            ['Title IX', 'https://oed.wisc.edu/title-ix.htm'],
+                            ['European Association of Technology Enhanced Learning (EATEL)', 'https://ea-tel.eu/'],
+                            ['European Science Education Research Association (ESERA)', 'https://www.esera.org/'],
+                            [
+                                'International Artificial Intelligence in Education Society (IAIEDS)',
+                                'https://iaied.org/',
+                            ],
+                            [
+                                'International Educational Data Mining Society (IEDMS)',
+                                'https://uia.org/s/or/en/1122278867',
+                            ],
+                            ['International Society of the Learning Sciences (ISLS)', 'https://www.isls.org/'],
+                            ['Multilingual Learning Research Center (MLRC)', 'https://mlrc.wisc.edu/'],
+
+                            ['Society for Learning Analytics Research (SOLAR)', 'https://www.solaresearch.org/'],
                         ].map(([label, href]) => (
                             <li key={label}>
                                 <Link href={href} className="hover:text-white">
@@ -232,7 +221,7 @@ export const Footer = () => {
                             </a>
                         </li>
                         <li className="mt-4">
-                            <div className="flex justify-center md:justify-start space-x-4">
+                            <div className="grid grid-cols-3 gap-4">
                                 {contact.map(({ icon, label, link }) => (
                                     <Link
                                         key={label}
@@ -240,9 +229,9 @@ export const Footer = () => {
                                         aria-label={label}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="bg-[#adadad] p-2 rounded-full hover:bg-white"
+                                        className="flex items-center justify-center bg-[#adadad] p-2 rounded-full hover:bg-white"
                                     >
-                                        <span className={`${icon} w-7 h-6 text-[#282728]`} />
+                                        <span className={`${icon} w-6 h-6 text-[#282728]`} />
                                     </Link>
                                 ))}
                             </div>
