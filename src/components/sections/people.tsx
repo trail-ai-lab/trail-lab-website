@@ -15,32 +15,33 @@ export const People = () => {
     )
 
     return (
-        <section className="flex flex-col space-y-12">
-            {Object.entries(grouped).map(([category, members]) => (
-                <div key={category} className="space-y-12">
-                    <Typography variant="h1" underline>
-                        {category}
-                    </Typography>
+        <section className="flex flex-col">
+            <p className="mb-4 text-xs text-muted-foreground">PEOPLE</p>
+            <h2 className="text-3xl mb-24 font-medium lg:text-4xl">Meet Our Team</h2>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
+            {Object.entries(grouped).map(([category, members]) => (
+                <div key={category}>
+                    {category !== 'People' && (
+                        <h2 className="mt-24 mb-12 text-3xl font-medium lg:text-4xl text-center">{category}</h2>
+                    )}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-16 justify-items-center">
                         {members.map((person) => (
-                            <div key={person.id} className="flex flex-col items-center space-y-4">
+                            <div key={person.id} className="flex flex-col items-center">
                                 <Link href={`/people/${person.id}`}>
                                     <Image
                                         src={person.image || '/images/people/default-avatar.png'}
                                         alt={person.name}
                                         width={200}
                                         height={200}
-                                        className="size-[200px] rounded-full"
+                                        className="size-[200px] rounded-full mb-4"
                                         priority
                                     />
                                 </Link>
 
-                                <Link href={`/people/${person.id}`} className="text-xl font-semibold hover:underline">
+                                <Link href={`/people/${person.id}`} className="font-medium hover:underline">
                                     {person.name}
                                 </Link>
-
-                                <p className="text-muted-foreground text-center max-w-[16rem] text-sm">
+                                <p className="text-muted-foreground text-center">
                                     {person.designation}
                                     {person.advisor && (
                                         <>
@@ -51,7 +52,7 @@ export const People = () => {
                                                     href={person.advisorUrl}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="underline underline-offset-2 text-muted-foreground hover:text-primary"
+                                                    className="underline underline-offset-2 text-sm text-muted-foreground hover:text-primary"
                                                 >
                                                     {person.advisor}
                                                 </Link>

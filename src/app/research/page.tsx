@@ -1,5 +1,5 @@
 import { Layout } from '@/components/layout'
-import { ResearchList } from '@/components/sections/research-list'
+import { Research } from '@/components/sections/research'
 import { OPEN_GRAPH_IMAGE } from '@/config'
 import type { Metadata } from 'next'
 
@@ -31,7 +31,7 @@ const ResearchPage = async () => {
     return (
         <Layout>
             <div className="pt-12 pb-24">
-                <ResearchList />
+                <Research />
             </div>
         </Layout>
     )

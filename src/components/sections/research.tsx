@@ -19,7 +19,7 @@ export interface FaqItem {
     answer: string
 }
 
-type ResearchListProps = {
+type ResearchProps = {
     filterByIds?: string[]
     heading?: string
     description?: string
@@ -81,11 +81,11 @@ const IconBadge = ({ icon: Icon }: { icon: LucideIcon }) => (
     </span>
 )
 
-export const ResearchList = ({
+export const Research = ({
     filterByIds,
     description = 'Artificial intelligence (AI) exacerbates educational inequities by threatening heterogeneity and promoting cultural and linguistic hierarchies. When used in learners’ contexts that differ from the majority, AI tend to perform significantly worse, leading to biased assessments, perpetuation of cultural stereotypes, increased hallucinations, and failure to capture linguistic and cultural nuances.',
     faqs = defaultFaqs,
-}: ResearchListProps) => {
+}: ResearchProps) => {
     const filteredAreas = filterByIds ? researchAreas.filter((r) => filterByIds.includes(r.id)) : researchAreas
 
     return (

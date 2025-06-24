@@ -1,7 +1,7 @@
 import { Layout } from '@/components/layout'
 import { Projects } from '@/components/sections/projects'
 import { Publications } from '@/components/sections/publications'
-import { ResearchList } from '@/components/sections/research-list'
+import { Research } from '@/components/sections/research'
 import { people } from '@/data/people'
 import { publications } from '@/data/publications'
 import { researchAreas } from '@/data/research'
@@ -71,13 +71,6 @@ const PersonPage = async ({ params }: { params: { id: string } }) => {
                         </p>
                     )}
                 </div>
-
-                {/* Research Areas */}
-                {associatedResearch.length > 0 && (
-                    <div>
-                        <ResearchList filterByIds={person.research} />
-                    </div>
-                )}
 
                 {/* Publications */}
                 {hasPublications && (
