@@ -5,7 +5,6 @@ export const researchAreas = [
         image: '/images/logo/trail-logo.svg',
         publications: ['publication-1', 'publication-2'],
         people: ['shamya-karumbaiah'],
-        projects: ['aibat'],
         funders: [
             { name: 'NSF', logo: '/images/funders/nsf-logo.png' },
             { name: 'Google', logo: '/images/funders/google.png' },
@@ -18,7 +17,6 @@ export const researchAreas = [
         image: '/images/logo/trail-logo.svg',
         publications: ['publication-3', 'publication-4'],
         people: ['anurag-maravi'],
-        projects: ['mllm-tool'],
         funders: [
             { name: 'NSF', logo: '/images/funders/nsf-logo.png' },
             { name: 'Google', logo: '/images/funders/google.png' },

@@ -7,7 +7,6 @@ export const people = [
         category: 'People', // to preserve grouping
         website: 'https://shamya.github.io/',
         research: ['research-1', 'research-2'],
-        projects: ['aibat', 'slai'],
     },
     {
         id: 'ananya-ganesh',
@@ -115,7 +114,7 @@ export const people = [
     {
         id: 'keisha-lindsay',
         name: 'Keisha Lindsay',
-        designation: 'University of Wisconsin-Madison, Political Science',
+        designation: "University of Wisconsin-Madison, Political Science, Gender & Women's Studies",
         image: '/images/people/keisha-lindsay.png',
         category: 'Collaborators',
         website: 'https://gws.wisc.edu/staff/lindsay-keisha/',

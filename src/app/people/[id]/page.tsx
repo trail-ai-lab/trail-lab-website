@@ -1,11 +1,9 @@
 import { Layout } from '@/components/layout'
-import { Projects } from '@/components/sections/projects'
 import { Publications } from '@/components/sections/publications'
 import { Research } from '@/components/sections/research'
 import { people } from '@/data/people'
 import { publications } from '@/data/publications'
 import { researchAreas } from '@/data/research'
-import { getProjectsList } from '@/lib/projects'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -21,8 +19,6 @@ const PersonPage = async ({ params }: { params: { id: string } }) => {
     const hasPublications = publications.some((pub) => pub.authors.includes(person.id))
 
     const associatedResearch = researchAreas.filter((r) => person.research?.includes(r.id))
-    const allProjects = await getProjectsList()
-    const associatedProjects = allProjects.filter((proj) => person.projects?.includes(proj.slug))
 
     return (
         <Layout>
@@ -76,13 +72,6 @@ const PersonPage = async ({ params }: { params: { id: string } }) => {
                 {hasPublications && (
                     <div>
                         <Publications filterByAuthorId={person.id} />
-                    </div>
-                )}
-
-                {/* Projects */}
-                {associatedProjects.length > 0 && (
-                    <div>
-                        <Projects projects={associatedProjects} />
                     </div>
                 )}
             </section>

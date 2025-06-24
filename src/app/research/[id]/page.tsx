@@ -1,11 +1,9 @@
 import { Layout } from '@/components/layout'
-import { Projects } from '@/components/sections/projects'
 import { Publications } from '@/components/sections/publications'
 import { Typography } from '@/components/typography'
 import { Separator } from '@/components/ui/separator'
 import { people } from '@/data/people'
 import { researchAreas } from '@/data/research'
-import { getProjectsList } from '@/lib/projects'
 import { getResearchData } from '@/lib/research'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -23,8 +21,6 @@ export default async function ResearchDetailPage({ params }: { params: { id: str
     if (!researchFile) return notFound()
 
     const associatedPeople = people.filter((p) => area.people?.includes(p.id))
-    const allProjects = await getProjectsList()
-    const associatedProjects = allProjects.filter((project) => area.projects?.includes(project.slug))
 
     const publications = area.publications ?? []
 
@@ -42,7 +38,6 @@ export default async function ResearchDetailPage({ params }: { params: { id: str
 
                 {publications.length > 0 && <Publications filterByIds={publications} />}
 
-                {associatedProjects.length > 0 && <Projects projects={associatedProjects} />}
 
                 {associatedPeople.length > 0 && (
                     <div className="space-y-4">

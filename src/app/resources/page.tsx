@@ -1,11 +1,10 @@
 import { Layout } from '@/components/layout'
-import { Projects } from '@/components/sections/projects'
+import { Resources } from '@/components/sections/resources'
 import { OPEN_GRAPH_IMAGE } from '@/config'
-import { getProjectsList } from '@/lib/projects'
 import type { Metadata } from 'next'
 
-const title = 'Projects'
-const description = 'Explore a collection of articles and projects posts by lab.'
+const title = 'Resources'
+const description = 'TRAIL resources.'
 
 export const metadata: Metadata = {
     title,
@@ -28,16 +27,14 @@ export const metadata: Metadata = {
     },
 }
 
-const ProjectsPage = async () => {
-    const projects = await getProjectsList()
-
+const ResourcesPage = () => {
     return (
         <Layout>
             <div className="pt-12 pb-24">
-                <Projects projects={projects} />
+                <Resources />
             </div>
         </Layout>
     )
 }
 
-export default ProjectsPage
+export default ResourcesPage
