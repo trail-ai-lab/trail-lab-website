@@ -13,8 +13,7 @@ export const News = ({ showAll = false }: NewsProps) => {
 
     return (
         <section className="flex flex-col">
-            <p className="mb-4 text-xs text-muted-foreground">NEWS</p>
-            <h2 className="text-3xl font-medium lg:text-4xl">Latest Updates From Our Lab</h2>
+            <h2 className="text-3xl font-medium lg:text-4xl">News</h2>
 
             <div className="mt-24 flex flex-col">
                 <div className="flex flex-col">

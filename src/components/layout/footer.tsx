@@ -175,22 +175,26 @@ export const Footer = () => {
                     <h3 className="uppercase font-semibold text-base mb-4">AFFILIATIONS</h3>
                     <ul className="space-y-4">
                         {[
-                            ['American Educational Research Association (AERA)', 'https://www.aera.net/'],
+                            // ['American Educational Research Association (AERA)', 'https://www.aera.net/'],
 
-                            ['European Association of Technology Enhanced Learning (EATEL)', 'https://ea-tel.eu/'],
-                            ['European Science Education Research Association (ESERA)', 'https://www.esera.org/'],
-                            [
-                                'International Artificial Intelligence in Education Society (IAIEDS)',
-                                'https://iaied.org/',
-                            ],
-                            [
-                                'International Educational Data Mining Society (IEDMS)',
-                                'https://uia.org/s/or/en/1122278867',
-                            ],
-                            ['International Society of the Learning Sciences (ISLS)', 'https://www.isls.org/'],
+                            // ['European Association of Technology Enhanced Learning (EATEL)', 'https://ea-tel.eu/'],
+                            // ['European Science Education Research Association (ESERA)', 'https://www.esera.org/'],
+                            // [
+                            //     'International Artificial Intelligence in Education Society (IAIEDS)',
+                            //     'https://iaied.org/',
+                            // ],
+                            // [
+                            //     'International Educational Data Mining Society (IEDMS)',
+                            //     'https://uia.org/s/or/en/1122278867',
+                            // ],
+                            // ['International Society of the Learning Sciences (ISLS)', 'https://www.isls.org/'],
+                            ['Data Science Institute', 'https://dsi.wisc.edu/'],
+                            ['Department of Curriculum & Instruction', 'https://ci.education.wisc.edu/'],
+                            ['Holtz Center', 'https://sts.wisc.edu/'],
+                            ['Institute for Diversity Science', 'https://ids.wisc.edu/'],
                             ['Multilingual Learning Research Center (MLRC)', 'https://mlrc.wisc.edu/'],
 
-                            ['Society for Learning Analytics Research (SOLAR)', 'https://www.solaresearch.org/'],
+                            // ['Society for Learning Analytics Research (SOLAR)', 'https://www.solaresearch.org/'],
                         ].map(([label, href]) => (
                             <li key={label}>
                                 <Link href={href} className="hover:text-white">

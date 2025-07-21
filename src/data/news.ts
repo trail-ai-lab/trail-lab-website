@@ -91,8 +91,4 @@ export const news = [
         date: 'Jun 27, 2025',
         news: '{shamya-karumbaiah} was an invited speaker at the "AI and Society" event hosted by the Wisconsin International Resource Consortium.',
     },
-    {
-        date: 'Mar 22, 2025',
-        news: '{shamya-karumbaiah} was named one of the most powerful people in [artificial intelligence](https://www.businessinsider.com/most-powerful-people-in-ai-2023) by Business Insider.',
-    },
 ]

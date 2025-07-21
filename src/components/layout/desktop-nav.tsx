@@ -12,7 +12,8 @@ export const DesktopNav = () => {
 
     const isActive = useMemo(
         () => (path: string) => {
-            return pathname === path
+            if (path === '/') return pathname === '/'
+            return pathname === path || pathname.startsWith(`${path}/`)
         },
         [pathname],
     )

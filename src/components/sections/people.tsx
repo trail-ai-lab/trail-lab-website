@@ -16,9 +16,6 @@ export const People = () => {
 
     return (
         <section className="flex flex-col">
-            <p className="mb-4 text-xs text-muted-foreground">PEOPLE</p>
-            <h2 className="text-3xl mb-24 font-medium lg:text-4xl">Meet Our Team</h2>
-
             {Object.entries(grouped).map(([category, members]) => (
                 <div key={category}>
                     {category !== 'People' && (
