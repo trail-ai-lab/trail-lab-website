@@ -19,7 +19,6 @@ export const Publications = ({ filterByAuthorId, filterByIds }: PublicationsProp
         publications = publications.filter((pub) => filterByIds.includes(pub.id))
     }
 
-    const publicationsCount = `${publications.length} PAPER${publications.length !== 1 ? 'S' : ''}`
     const displayedYears = new Set<string>()
 
     const renderAuthors = (authorIdsOrNames: string[]) =>
@@ -43,7 +42,6 @@ export const Publications = ({ filterByAuthorId, filterByIds }: PublicationsProp
 
     return (
         <section className="flex flex-col">
-            <p className="mb-4 text-xs text-muted-foreground">{publicationsCount}</p>
             <h2 className="text-3xl font-medium lg:text-4xl">Publications</h2>
 
             <div className="mt-24 flex flex-col space-y-6">

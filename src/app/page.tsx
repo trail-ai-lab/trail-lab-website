@@ -43,12 +43,12 @@ const HomePage = async () => {
                     </div>
 
                     {/* Image */}
-                    <div className="relative hidden lg:block h-[500px] w-[300px] overflow-hidden rounded-[35px] shadow-xl border">
+                    <div className="relative hidden lg:block h-[300px] w-[300px]">
                         <Image
-                            src="/images/hero-image.jpg"
+                            src="/images/logo/trail-logo.svg"
                             alt="TRAIL Lab Hero"
                             fill
-                            className="object-fill"
+                            className="invert-0 dark:invert object-fill"
                             priority
                         />
                     </div>

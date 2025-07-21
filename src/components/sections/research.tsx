@@ -92,8 +92,7 @@ export const Research = ({
         <>
             {/* Section 1: Mission + FAQs */}
             <section className="flex flex-col">
-                <p className="mb-4 text-xs text-muted-foreground">RESEARCH</p>
-                <h2 className="text-3xl font-medium lg:text-4xl">Our Research</h2>
+                <h2 className="text-3xl font-medium lg:text-4xl">Research</h2>
 
                 <div className="mt-24 grid gap-9 lg:grid-cols-2">
                     <div>
