@@ -38,7 +38,6 @@ export default async function ResearchDetailPage({ params }: { params: { id: str
 
                 {publications.length > 0 && <Publications filterByIds={publications} />}
 
-
                 {associatedPeople.length > 0 && (
                     <div className="space-y-4">
                         <div className="flex items-center justify-between border-b pb-4">

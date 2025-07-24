@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "trail-lab-website",
+    "trail-lab-website": "trail-lab-website"
+  },
+  "targets": {},
+  "etags": {}
+}

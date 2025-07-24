@@ -1,4 +1,3 @@
-import { Typography } from '@/components/typography'
 import { people } from '@/data/people'
 import Image from 'next/image'
 import Link from 'next/link'

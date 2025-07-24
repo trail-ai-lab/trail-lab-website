@@ -1,6 +1,5 @@
 import { Layout } from '@/components/layout'
 import { Publications } from '@/components/sections/publications'
-import { Research } from '@/components/sections/research'
 import { people } from '@/data/people'
 import { publications } from '@/data/publications'
 import { researchAreas } from '@/data/research'
