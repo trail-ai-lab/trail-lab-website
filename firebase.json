@@ -1,29 +1,25 @@
 {
-  "hosting": {
-    "site": "trail-lab-website",
-    "public": "out",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "redirects": [
-      {
-        "source": "/aibat",
-        "destination": "https://aibat-frontend-1008901154916.us-central1.run.app",
-        "type": 302
-      },
-      {
-        "source": "/aibat/**",
-        "destination": "https://aibat-frontend-1008901154916.us-central1.run.app",
-        "type": 302
-      }
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  }
+    "hosting": {
+        "site": "trail-lab-website",
+        "public": "out",
+        "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+        "redirects": [
+            {
+                "source": "/aibat",
+                "destination": "https://aibat-frontend-1008901154916.us-central1.run.app",
+                "type": 302
+            },
+            {
+                "source": "/aibat/**",
+                "destination": "https://aibat-frontend-1008901154916.us-central1.run.app",
+                "type": 302
+            }
+        ],
+        "rewrites": [
+            {
+                "source": "**",
+                "destination": "/index.html"
+            }
+        ]
+    }
 }
