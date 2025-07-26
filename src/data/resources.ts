@@ -41,6 +41,15 @@ export const resources: Resource[] = [
         image: '/images/tools/aibat.png',
         link: 'https://aibat-frontend-1008901154916.us-central1.run.app',
     },
+    {
+        id: 'tool-2',
+        type: 'tool',
+        category: 'Tools',
+        title: 'AI Bias Audit Framework',
+        description: 'A comprehensive framework for auditing bias in AI grading models through systematic text variation analysis',
+        image: '/images/tools/bias-audit.png',
+        link: 'https://trail-lab-dev.firebaseapp.com/',
+    },
     // {
     //     id: 'slai',
     //     type: 'tool',

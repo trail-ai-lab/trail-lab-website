@@ -13,6 +13,16 @@
                 "source": "/aibat/**",
                 "destination": "https://aibat-frontend-1008901154916.us-central1.run.app",
                 "type": 302
+            },
+            {
+                "source": "/bias-audit",
+                "destination": "https://trail-lab-dev.web.app",
+                "type": 302
+            },
+            {
+                "source": "/bias-audit/**",
+                "destination": "https://trail-lab-dev.web.app",
+                "type": 302
             }
         ],
         "rewrites": [
